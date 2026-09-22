@@ -5,13 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello</title>
     <script>
+document.addEventListener("DOMContentLoaded", function() {
+        const form = document.querySelector("form");
+        const nameInput = document.getElementById("name");
 
-        function hello() {}
-        alert("Hello, World!");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const name = nameInput.value.trim();
+            if (name) {
+                alert(`Hello, ${name}!`);
+                nameInput.value = "";
+            } else {
+                alert("Please enter your name.");
+            }
+        });
+    });
     </script>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <button onclick="hello()">Click Here</button>
+    <h1>Hello!</h1>
+<form>
+    <input autofocus id="name" placeholder="Enter your name">
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>
